@@ -103,6 +103,7 @@ main {
 
 .promotion {
   padding: auto;
+  height: var(--promotion);
   width: 100%;
   display: flex;
   background-color: var(--bg);
