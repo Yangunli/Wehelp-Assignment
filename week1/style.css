@@ -31,6 +31,10 @@ body {
   display: flex;
 }
 
+.promotion p {
+  padding-left: 10px;
+}
+
 .item {
   padding: 0px 10px;
 }
