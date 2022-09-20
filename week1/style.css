@@ -14,7 +14,7 @@
 }
 
 body {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   font-family: "Work Sans", sans-serif;
   font-size: var(--font);
