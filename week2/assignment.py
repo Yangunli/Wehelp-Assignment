@@ -79,18 +79,13 @@ print("---------------------------------------")
 print("W2-4")
 print("=====")
 def maxProduct(nums):
+# 請用你的程式補完這個函式的區塊
     result =[]
-    newNums = nums[1:]
     for i in nums:
-        for j in newNums:
+        for j in nums:
             if i !=j:
                 result.append(i*j)
     print(max(result))       
-
-        
-  
-
-# 請用你的程式補完這個函式的區塊
 maxProduct([5, 20, 2, 6]) # 得到 120
 maxProduct([10, -20, 0, 3]) # 得到 30
 maxProduct([10, -20, 0, -3]) # 得到 60
