@@ -5,10 +5,6 @@ promotionContainer.setAttribute("class","promotion-container")
 titleContainer.setAttribute("class","title-container")
 container.appendChild(promotionContainer)
 container.appendChild(titleContainer)
-let loadBtn = document.createElement("button")
-container.appendChild(loadBtn)
-loadBtn.setAttribute("class", "loadBtn")
-loadBtn.textContent = "Load More"
 
 // first fetch data
 const getData =fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json").then(function(response) {
