@@ -64,10 +64,11 @@ print("=====")
 def maxProduct(nums):
 # 請用你的程式補完這個函式的區塊
     result =[]
+   
     for i in nums:
+        j =i+1
         for j in nums:
-            if i !=j:
-                result.append(i*j)
+            result.append(i*j)
     print(max(result))       
 maxProduct([5, 20, 2, 6]) # 得到 120
 maxProduct([10, -20, 0, 3]) # 得到 30

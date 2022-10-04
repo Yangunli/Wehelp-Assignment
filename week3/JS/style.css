@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
+:root {
+  --font: 20px;
+  --bg: #ddeef8;
+  --promotion: 50px;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Work Sans", sans-serif;
+  font-size: var(--font);
+  padding-bottom: var(--promotion);
+}
+.nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  height: var(--promotion);
+}
+
+.right {
+  display: flex;
+}
+
+.item:not(:last-child) {
+  padding: 0px 10px;
+}
+
+.menu {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-icons {
+  background-image: url(./menu_icon.png);
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  width: var(--font);
+}
+
+.menu:hover ul {
+  display: block;
+}
+ul {
+  background-color: white;
+  box-shadow: 0px 0px 5px rgb(35, 35, 35);
+  width: 50%;
+  min-height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1rem 0rem;
+  align-items: center;
+  z-index: 5;
+}
+li {
+  /* display: inline-block; */
+  margin-bottom: var(--promotion);
+  text-align: center;
+}
+
+.header {
+  background-color: var(--bg);
+  height: 300px;
+  width: 100%;
+  font-size: calc(var(--font) * 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--promotion);
+}
+
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.promotion-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-evenly;
+  margin: 1rem 0rem;
+  height: var(--promotion);
+  gap: var(--font) var(--font);
+}
+
+.title:nth-child(1),
+.title:nth-child(2) {
+  height: var(--promotion);
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--bg);
+}
+
+.title:nth-child(1) p,
+.title:nth-child(2) p {
+  display: flex;
+  width: 85%;
+  align-items: center;
+}
+
+.title:nth-child(1) img,
+.title:nth-child(2) img {
+  width: 80px;
+  height: var(--promotion);
+  object-fit: cover;
+}
+
+.title-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--font) var(--font);
+}
+
+.title img {
+  width: 100%;
+  object-fit: cover;
+  height: 200px;
+}
+
+.title {
+  background-color: var(--bg);
+  display: flex;
+  /* flex-direction: column; */
+  text-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.title:not(:nth-child(1), :nth-child(2)) p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  height: 50px;
+  background-color: rgba(250, 250, 250, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+@media (min-width: 600.001px) and (max-width: 1200px) {
+  .container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .title:nth-child(1) p,
+  .title:nth-child(2) p {
+    width: 80%;
+  }
+}
+
+@media (max-width: 880px) {
+  .title:nth-child(1) p,
+  .title:nth-child(2) p {
+    width: 75%;
+  }
+}
+
+@media (min-width: 360.001px) and (max-width: 600px) {
+  .title-container {
+    grid-template-columns: 1fr;
+  }
+  .container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    text-align: center;
+  }
+
+  .promotion-container {
+    height: calc(var(--font) * 2 + var(--promotion) * 2);
+  }
+  .title:nth-child(1) p,
+  .title:nth-child(2) p {
+    width: 82%;
+  }
+  .right,
+  .menu ul {
+    display: none;
+  }
+  .menu {
+    display: block;
+  }
+}
+
+@media (max-width: 460px) {
+  .title:nth-child(1) p,
+  .title:nth-child(2) p {
+    width: 75%;
+  }
+}
+
+@media (max-width: 360px) {
+  .title-container {
+    grid-template-columns: 1fr;
+  }
+  .container {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .promotion-container {
+    height: calc(var(--font) * 2 + var(--promotion) * 2);
+  }
+
+  .right,
+  .menu ul {
+    display: none;
+  }
+  .menu {
+    display: block;
+    z-index: 2;
+  }
+
+  .header {
+    font-size: calc(var(--font) * 1.5);
+  }
+}
