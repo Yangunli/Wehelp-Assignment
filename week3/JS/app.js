@@ -10,9 +10,6 @@ loadBtn.setAttribute("class", "loadBtn")
 loadBtn.textContent="Load More"
 container.appendChild(loadBtn)
 
-
-
-
 // first fetch data
 const getData =fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json").then(function(response) {
     return response.json();
@@ -45,8 +42,6 @@ const getData =fetch("https://padax.github.io/taipei-day-trip-resources/taipei-a
   }
 )
 
-
-
 function loadMore(){
   fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json").then(function(response) {
     return response.json();
@@ -66,14 +61,12 @@ function loadMore(){
       viewImg.setAttribute("src", imgUrl)
       viewTitle.textContent = stitle       
     }
-  } 
-)
+  })
 }
-
 
 function removeBtn(){
   loadBtn.remove()
 }
 
 loadBtn.addEventListener("click", loadMore)
-loadBtn.addEventListener("click",removeBtn)
+loadBtn.addEventListener("click", removeBtn)
