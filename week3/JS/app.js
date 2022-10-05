@@ -44,7 +44,8 @@ const getData =fetch("https://padax.github.io/taipei-day-trip-resources/taipei-a
     }
   }
 )
- 
+
+
 
 function loadMore(){
   fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json").then(function(response) {
@@ -65,10 +66,14 @@ function loadMore(){
       viewImg.setAttribute("src", imgUrl)
       viewTitle.textContent = stitle       
     }
-   
-  }
-  
+  } 
 )
-console.log("hi")
 }
+
+
+function removeBtn(){
+  loadBtn.remove()
+}
+
 loadBtn.addEventListener("click", loadMore)
+loadBtn.addEventListener("click",removeBtn)
