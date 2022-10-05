@@ -159,6 +159,13 @@ main {
   backdrop-filter: blur(5px);
 }
 
+.loadBtn {
+  width: calc(var(--promotion) * 2);
+  height: var(--promotion);
+  border-radius: 10px;
+  margin: auto;
+}
+
 @media (min-width: 600.001px) and (max-width: 1200px) {
   .container {
     width: 90%;
