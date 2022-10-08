@@ -42,12 +42,14 @@ const getData =fetch("https://padax.github.io/taipei-day-trip-resources/taipei-a
   }
 )
 
+let num=2;
+let count=8;
 function loadMore(){
   fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json").then(function(response) {
     return response.json();
   }).then(function(myJson) {
     let data=(myJson.result.results)
-    for(let i=10; i<data.length; i++){
+    for(let i=num; i< num+count; i++){
       let view = data[i]
       let imgUrl=`htt${view.file.split('htt')[1]}`
       let stitle =view.stitle
@@ -62,11 +64,8 @@ function loadMore(){
       viewTitle.textContent = stitle       
     }
   })
-}
-
-function removeBtn(){
-  loadBtn.remove()
+  num+=8
 }
 
 loadBtn.addEventListener("click", loadMore)
-loadBtn.addEventListener("click", removeBtn)
+
