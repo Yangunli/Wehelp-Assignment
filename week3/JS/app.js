@@ -41,8 +41,13 @@ const getData =fetch("https://padax.github.io/taipei-day-trip-resources/taipei-a
     }
   }
 )
+//remove btn
+function removeBtn(){
+  loadBtn.remove()
+  alert("資料已載入完畢")
+}
 
-let num=2;
+let num=10;
 let count=8;
 function loadMore(){
   fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json").then(function(response) {
@@ -61,11 +66,14 @@ function loadMore(){
       title.appendChild(viewImg)
       title.appendChild(viewTitle)
       viewImg.setAttribute("src", imgUrl)
-      viewTitle.textContent = stitle       
+      viewTitle.textContent = stitle 
     }
+    num+=8      
   })
-  num+=8
+  //when num+count=data.length ,remove btn
+  // if (num===50){
+  //   loadBtn.addEventListener("click", removeBtn) 
+  // } 
 }
-
 loadBtn.addEventListener("click", loadMore)
 
