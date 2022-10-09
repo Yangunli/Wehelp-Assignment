@@ -138,12 +138,23 @@ main {
 
 .title {
   background-color: var(--bg);
-  display: flex;
+  display: none;
   flex-direction: column;
   text-align: center;
   align-items: center;
   height: 200px;
   position: relative;
+}
+
+.title:nth-child(1),
+.title:nth-child(2),
+.title:nth-child(3),
+.title:nth-child(4),
+.title:nth-child(5),
+.title:nth-child(6),
+.title:nth-child(7),
+.title:nth-child(8) {
+  display: flex;
 }
 
 .title p {
@@ -160,8 +171,7 @@ main {
 }
 
 .loadBtn {
-  width: calc(var(--promotion) * 2);
-  height: var(--promotion);
+  padding: calc(var(--font) * 0.5) var(--font);
   border-radius: 10px;
   margin: auto;
 }

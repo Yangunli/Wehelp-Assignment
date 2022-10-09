@@ -10,12 +10,11 @@ loadBtn.setAttribute("class", "loadBtn")
 loadBtn.textContent="Load More"
 container.appendChild(loadBtn)
 
-// first fetch data
-const getData =fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json").then(function(response) {
+fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json").then(function(response) {
     return response.json();
   }).then(function(myJson) {
     let data=(myJson.result.results)
-    for(let i=0; i<10; i++){
+    for(let i=0; i<data.length; i++){
       let view = data[i]
       let imgUrl=`htt${view.file.split('htt')[1]}`
       let stitle =view.stitle
@@ -36,44 +35,23 @@ const getData =fetch("https://padax.github.io/taipei-day-trip-resources/taipei-a
         title.appendChild(viewImg)
         title.appendChild(viewTitle)
         viewImg.setAttribute("src", imgUrl)
-        viewTitle.textContent = stitle       
+        viewTitle.textContent = stitle
+        let currentTitle = 8;
+        loadBtn.addEventListener("click", () => {
+          let titles = [
+            ...document.querySelectorAll(".title-container .title"),
+          ];
+          for (var i = currentTitle; i < currentTitle + 8; i++) {
+            titles[i].style.display = "flex";
+          }
+          currentTitle += 8;
+          if (currentTitle >= data.length-2) {
+            loadBtn.style.display = "none";
+          }  
+        })       
       }  
     }
   }
 )
-//remove btn
-function removeBtn(){
-  loadBtn.remove()
-  alert("資料已載入完畢")
-}
 
-let num=10;
-let count=8;
-function loadMore(){
-  fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json").then(function(response) {
-    return response.json();
-  }).then(function(myJson) {
-    let data=(myJson.result.results)
-    for(let i=num; i< num+count; i++){
-      let view = data[i]
-      let imgUrl=`htt${view.file.split('htt')[1]}`
-      let stitle =view.stitle
-      let viewImg = document.createElement("img")
-      let viewTitle = document.createElement("p")
-      const title = document.createElement("div");
-      title.setAttribute("class", "title");
-      document.querySelector(".title-container").appendChild(title);
-      title.appendChild(viewImg)
-      title.appendChild(viewTitle)
-      viewImg.setAttribute("src", imgUrl)
-      viewTitle.textContent = stitle 
-    }
-    num+=8      
-  })
-  //when num+count=data.length ,remove btn
-  // if (num===50){
-  //   loadBtn.addEventListener("click", removeBtn) 
-  // } 
-}
-loadBtn.addEventListener("click", loadMore)
 
