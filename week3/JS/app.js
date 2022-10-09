@@ -38,14 +38,12 @@ fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assi
         viewTitle.textContent = stitle
         let currentTitle = 8;
         loadBtn.addEventListener("click", () => {
-          let titles = [
-            ...document.querySelectorAll(".title-container .title"),
-          ];
-          for (var i = currentTitle; i < currentTitle + 8; i++) {
-            titles[i].style.display = "flex";
+          let titles = [...document.querySelectorAll(".title-container .title"),];
+          for (let index = currentTitle; index < currentTitle + 8; index++) {
+            titles[index].style.display = "flex";
           }
           currentTitle += 8;
-          if (currentTitle >= data.length-2) {
+          if (currentTitle >= data.length - 2) {
             loadBtn.style.display = "none";
           }  
         })       
