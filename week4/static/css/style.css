@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #f3eada;
+  font-family: "Noto Sans TC", sans-serif;
+  color: rgb(43, 15, 2);
+}
+
+main {
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header {
+  background-color: #fff1d7;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(122, 93, 7, 0.15) 0px 2px 6px 0px;
+  position: sticky;
+  top: 0;
+}
+
+.form-container {
+  width: min(90%, 400px);
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px saddlebrown solid; */
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
+form {
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hr {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  margin: 3% 0%;
+}
+label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+input {
+  width: 80%;
+  padding: 5px;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h1 {
+  font-weight: 700;
+}
+h3 {
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.hr {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}

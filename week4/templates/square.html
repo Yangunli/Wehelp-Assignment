@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block content %}
+<header class="header">
+  <h1>正整數平方計算結果</h1>
+</header>
+<main>
+  <div class="form-container">
+    <h3>{%if result %} {{number}}的平方為{{result}} {%endif%}</h3>
+  </div>
+</main>
+{% endblock %}
