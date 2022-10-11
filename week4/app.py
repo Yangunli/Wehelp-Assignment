@@ -28,16 +28,12 @@ def signIn():
 def member():
     name=session["username"]
     if name=="": return redirect(url_for("index"))
-    print("if you log in, and session is ",dict(session))
-    
     return render_template("signin.html", name=name)
 
 @app.route("/signout")
 def signOut():
     if 'username' in session:
         session["username"]=""
-        # session.pop("password",None)
-        print("if you log out, and session is ",dict(session))
         return redirect(url_for("index"))
 
 
@@ -45,17 +41,11 @@ def signOut():
 def error():
     message=request.args.get("message","")
     return render_template("signin.html",message=message)
-        
-    # return render_template("signin.html",name=name,password=password,message=message)
-
-
-
 
 
 @app.route("/square")
 def square():
     number=request.values.get("num","")
-    # number=request.form["num"]
     number=int(number)
     result=number**2
     
@@ -68,11 +58,6 @@ def squareOutside(num):
     num=int(num)
     result=num**2
     return render_template("square.html",number=num, result=result)
-
-
-
-
-
 
 
 if __name__ == "__main__":
