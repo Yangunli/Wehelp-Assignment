@@ -27,14 +27,14 @@ def signIn():
 def member():
     if "username" in session:
         name=session["username"]
-        if name=="": return redirect(url_for("index"))
+        # if name=="": return redirect(url_for("index"))
         return render_template("signin.html", name=name)
     else: return redirect(url_for("index"))
 
 @app.route("/signout")
 def signOut():
     if 'username' in session:
-        session["username"]=""
+        session.pop("username",None)
         return redirect(url_for("index"))
 
 
@@ -60,6 +60,15 @@ def squareOutside(num):
     result=num**2
     return render_template("square.html",number=num, result=result)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    errorMsg="Page Not Found"
+    return render_template("error.html",errorMsg=errorMsg)
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    errorMsg="Internal Server Error"
+    return render_template("error.html",errorMsg=errorMsg)
 
 if __name__ == "__main__":
     app.run(port=3000,debug=True)
