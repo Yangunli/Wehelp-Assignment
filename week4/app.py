@@ -44,20 +44,17 @@ def error():
 
 
 @app.route("/square")
-def square():
+def getNumber():
     number=request.values.get("num","")
+    return redirect(url_for("square", number=number))
+    # return render_template("square.html",number=number, result=result)
+
+
+@app.route("/square/<number>")
+def square(number):
     number=int(number)
     result=number**2
-    
-    
     return render_template("square.html",number=number, result=result)
-
-
-@app.route("/square/<num>")
-def squareOutside(num):
-    num=int(num)
-    result=num**2
-    return render_template("square.html",number=num, result=result)
 
 @app.errorhandler(404)
 def page_not_found(e):
