@@ -27,9 +27,8 @@ def signIn():
 def member():
     if "username" in session:
         name=session["username"]
-        # if name=="": return redirect(url_for("index"))
         return render_template("signin.html", name=name)
-    else: return redirect(url_for("index"))
+    else:  return redirect(url_for("index"))
 
 @app.route("/signout")
 def signOut():
