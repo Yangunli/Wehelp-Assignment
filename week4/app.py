@@ -43,14 +43,14 @@ def error():
     return render_template("signin.html",message=message)
 
 
-@app.route("/square")
-def getNumber():
-    number=request.values.get("num","")
-    return redirect(url_for("square", number=number))
+# @app.route("/square")
+# def getNumber():
+#     number=request.values.get("num","")
+#     return redirect(url_for("square", number=number))
     # return render_template("square.html",number=number, result=result)
 
 
-@app.route("/square/<number>")
+@app.route("/square/<number>", methods=["GET"])
 def square(number):
     number=int(number)
     result=number**2
@@ -59,12 +59,12 @@ def square(number):
 @app.errorhandler(404)
 def page_not_found(e):
     errorMsg="Page Not Found"
-    return render_template("error.html",errorMsg=errorMsg)
+    return render_template("error.html",errorMsg=errorMsg),404
 
 @app.errorhandler(500)
 def internal_server_error(e):
     errorMsg="Internal Server Error"
-    return render_template("error.html",errorMsg=errorMsg)
+    return render_template("error.html",errorMsg=errorMsg),500
 
 if __name__ == "__main__":
     app.run(port=3000,debug=True)
