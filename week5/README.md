@@ -10,8 +10,6 @@
 
 <img width="700" src="./assets/create table member.png" >
 
----
-
 ## 要求三：SQL CRUD
 
 #### 使⽤ INSERT 指令新增⼀筆資料到 member 資料表中，這筆資料的 username 和 password 欄位必須是 test。接著繼續新增⾄少 4 筆隨意的資料。
@@ -38,8 +36,6 @@
 
 <img width="700" src="./assets/update test.png" >
 
----
-
 ## 要求四：SQL Aggregate Function
 
 <img width="700" src="./assets/update followers.png" >
@@ -53,8 +49,6 @@
 #### 取得 member 資料表中，所有會員 follower_count 欄位的平均數
 
 <img width="500" src="./assets/countSumAvg.png" >
-
----
 
 ### 要求五：SQL JOIN (Optional)
 
