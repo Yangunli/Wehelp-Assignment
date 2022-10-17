@@ -16,7 +16,7 @@
 
 <img width="700" src="./assets/insert.png" >
 
-#### <font color=grey>使⽤ SELECT 指令取得所有在 member 資料表中的會員資料。</font>
+#### 使⽤ SELECT 指令取得所有在 member 資料表中的會員資料。
 
 #### 使⽤ SELECT 指令取得所有在 member 資料表中的會員資料，並按照 time 欄位，由近到遠排序。
 
@@ -32,6 +32,10 @@
 
 <img width="700" src="./assets/method 2 without limit.png" >
 
+3.  method 3
+
+<img width="700" src="./assets/method 3.png" >
+
 #### 使⽤ SELECT 指令取得欄位 username 是 test 的會員資料。(上)
 
 #### 使⽤ SELECT 指令取得欄位 username 是 test、且欄位 password 也是 test 的資料。(下)
@@ -46,13 +50,13 @@
 
 <img width="700" src="./assets/update followers.png" >
 
-- 前面新增時用預設值，所以來藉由 update 添加數值
+- 前面新增時用預設值，藉由 update 添加數值(因為我前面都給它 0)
 
-#### 取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。
+#### 取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。 (上)
 
-#### 取得 member 資料表中，所有會員 follower_count 欄位的總和。
+#### 取得 member 資料表中，所有會員 follower_count 欄位的總和。 (中)
 
-#### 取得 member 資料表中，所有會員 follower_count 欄位的平均數
+#### 取得 member 資料表中，所有會員 follower_count 欄位的平均數 (下)
 
 <img width="500" src="./assets/countSumAvg.png" >
 
