@@ -77,3 +77,27 @@
 #### 使⽤ SELECT、SQL Aggregate Functions 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留⾔平均按讚數。
 
 <img width="700" src="./assets/final.png" >
+
+### 要求六
+
+#### 我們不只要記錄留言按讚的數量，還要紀錄每一個留言的按讚會員是誰，支援以下使用場合：
+
+- 可以根據留言編號取得該留言有哪些會員按讚。
+
+- 會員若是嘗試對留言按讚：要能先檢查是否曾經按過讚，然後才將按讚的數量 +1 並且記錄按讚的會員是誰。
+
+#### create table 並依需求設定 composite key 以及 foreign key
+
+<img width="700" src="./assets/create table content_like.png" >
+
+#### liker 是按讚的 member
+
+<img width="700" src="./assets/insert_check.png" >
+
+<img width="700" src="./assets/content_like.png" >
+
+<img width="700" src="./assets/content_like-1.png" >
+
+<img width="700" src="./assets/content_like-2.png" >
+
+<img width="700" src="./assets/content_like-3.png" >
