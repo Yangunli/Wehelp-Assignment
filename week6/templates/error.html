@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block title %} Error!!! {% endblock %} {% block
+content %}
+<header class="header">
+  <a href="/"> <h1>{{errorMsg}}</h1></a>
+</header>
+<main>
+  <h3>{{errorMsg}}</h3>
+  <p><a href="/">回到首頁</a></p>
+</main>
+{% endblock %}
