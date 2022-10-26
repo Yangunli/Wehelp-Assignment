@@ -31,11 +31,8 @@ def register():
         mydb.commit()
         
         return redirect(url_for("index"))
-    except mysql.connector.Error as err:
-        if err.errno == errorcode.ER_TABLE_EXISTS_ERROR:
-            return redirect(url_for("error",message="帳號已經被註冊"))
-        else:
-            return redirect(url_for("error",message="帳號已經被註冊"))
+    except:
+        return redirect(url_for("error",message="帳號已經被註冊"))
 
 @app.route("/signin", methods=["POST"])
 def signIn(): 
