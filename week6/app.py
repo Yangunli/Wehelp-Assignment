@@ -1,13 +1,11 @@
 import mysql.connector 
-from mysql.connector import errorcode
 from flask import Flask, redirect, render_template,request,session,url_for
-from datetime import datetime
 
 app = Flask(__name__)
 app.config["SECRET_KEY"]="eaf266f88f72894c90"
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:thu982305@localhost/website"
 
-mydb = mysql.connector.connect(user='root', password='要用的時候要記得打自己的密碼',host='127.0.0.1',database='website')
+mydb = mysql.connector.connect(user='root', password='thu982305',host='127.0.0.1',database='website')
 
 mycursor = mydb.cursor(buffered=True)
 
@@ -27,7 +25,7 @@ def register():
     username=request.form["username"]
     password=request.form["password"]
     try:
-        mycursor.execute("insert into member(name,username,password) values('%s','%s','%s')" % (name,username,password))
+        mycursor.execute("insert into member(name,username,password)  values(%(name)s,%(username)s,%(password)s)", {"name":name, "username":username, "password":password})
         mydb.commit()
         
         return redirect(url_for("index"))
@@ -41,7 +39,7 @@ def signIn():
     
  
     try:
-        mycursor.execute("select username, password  from member  where username='%s' and password='%s'" % (name,password)) 
+        mycursor.execute("select username, password  from member  where username=%(name)s and password=%(password)s", {"name":name, "password":password}) 
       #存進session
         mydb.commit()
         for (name, password) in mycursor:
