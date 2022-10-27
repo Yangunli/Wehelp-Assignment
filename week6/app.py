@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.config["SECRET_KEY"]="eaf266f88f72894c90"
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:thu982305@localhost/website"
 
-mydb = mysql.connector.connect(user='root', password='thu982305',host='127.0.0.1',database='website')
+mydb = mysql.connector.connect(user='root', password='啊啊啊啊啊',host='127.0.0.1',database='website')
 
 mycursor = mydb.cursor(buffered=True)
 
