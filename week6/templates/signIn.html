@@ -18,11 +18,12 @@ content %} {%if username %}
     </form>
   </div>
   <div class="hr"></div>
-  <div class="form-container">
-    <!-- <ul>
-    預留給留言的部分
-      <li></li>
-    </ul> -->
+  <div class="msg">
+    <ul>
+      {% for msg in contents %}
+      <li><b>{{msg.name|capitalize}}</b> {{msg.content}}</li>
+      {% endfor %}
+    </ul>
   </div>
 </main>
 {%else%}

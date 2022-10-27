@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.config["SECRET_KEY"]="eaf266f88f72894c90"
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:thu982305@localhost/website"
 
-mydb = mysql.connector.connect(user='root', password='啊啊啊啊啊',host='127.0.0.1',database='website')
+mydb = mysql.connector.connect(user='root', password='thu982305',host='127.0.0.1',database='website')
 
 mycursor = mydb.cursor(buffered=True)
 
@@ -56,11 +56,13 @@ def signIn():
 def member():
     if "username" in session:        
         username=session["username"]
-   
-            # print(name,content)
-        
+        mycursor.execute("select name, content from member inner join  message on member.id=message.member_id order by message.time" ) 
+        mydb.commit()
+        contents=[]
+        for (name,content) in mycursor:
+            contents.append({"name":name,"content":content}) 
 
-        return render_template("signin.html", username=username)
+        return render_template("signin.html", username=username, contents=contents)
     else:  return redirect(url_for("index"))
 
 @app.route("/signout")
@@ -70,20 +72,25 @@ def signOut():
         return redirect(url_for("index"))
 
 
+
+@app.route("/message",methods=["POST"])
+def message():
+
+    id=session["id"] 
+    message=request.form["message"]
+    mycursor.execute("insert into message(member_id,content) values(%(id)s, %(message)s)", {"id":id, "message":message})
+    mydb.commit()
+    return redirect(url_for("member"))
+
+
+
 @app.route("/error")
 def error():
     message=request.args.get("message","")
     return render_template("signin.html",message=message)
 
 
-#留言的部分還沒想好邏輯
 
-# @app.route("/message")
-# def massage():
-#     msg=request.form["message"]
-#     mycursor.execute("insert into message(,content) values('%s','%s')" % (msg))
-#     mydb.commit()
-#     return redirect(url_for("member"))
 
 
 

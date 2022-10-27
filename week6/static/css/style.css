@@ -26,6 +26,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  padding-bottom: 20px;
 }
 
 .header {
@@ -71,6 +72,7 @@ label {
   width: 100%;
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
   justify-content: space-around;
 }
 
@@ -102,4 +104,24 @@ p {
 
 p a {
   border-bottom: black 1px solid;
+}
+
+ul {
+  color: rgb(113, 113, 113);
+  font-size: 1em;
+  list-style-type: none;
+}
+
+li {
+  border-bottom: 1px solid black;
+  line-height: 2.5;
+}
+
+.msg {
+  width: min(90%, 600px);
+  overflow-y: scroll;
+  background-color: rgb(223, 218, 209);
+  scrollbar-width: thin;
+  padding: 1.5rem;
+  border-radius: 5px;
 }
