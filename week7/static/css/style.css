@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #f3eada;
+  font-family: "Noto Sans TC", sans-serif;
+  color: rgb(43, 15, 2);
+}
+
+.container {
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 20px;
+}
+
+.header {
+  background-color: #fff1d7;
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(122, 93, 7, 0.15) 0px 2px 6px 0px;
+  position: sticky;
+  top: 0;
+}
+
+.form-container {
+  width: min(90%, 400px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+}
+
+form,
+.form {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hr {
+  width: 100%;
+  height: 2px;
+  background-color: rgb(223, 197, 158);
+  margin: 3% 0%;
+}
+label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-around;
+}
+
+input {
+  width: 80%;
+  padding: 5px;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h3 {
+  width: 100%;
+  text-align: center;
+  font-weight: 400;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+p a {
+  border-bottom: black 1px solid;
+}
+
+ul {
+  color: rgb(113, 113, 113);
+  font-size: 1em;
+  list-style-type: none;
+}
+
+li {
+  border-bottom: 1px solid black;
+  line-height: 2.5;
+}
+
+.msg {
+  width: min(90%, 600px);
+  height: 300px;
+  overflow-y: scroll;
+  background-color: rgb(223, 218, 209);
+  scrollbar-width: thin;
+  padding: 1.5rem;
+  border-radius: 5px;
+}
+
+/* firebox,sarifi寫法 */
+
+.signin > form,
+.signin > .form {
+  flex-direction: column;
+}
+
+/* firebox,sarifi不適用 */
+form:has(label),
+.form:has(label) {
+  flex-direction: column;
+}
+
+form:not(:has(label)),
+.form:not(:has(label)) {
+  flex-direction: initial;
+}
+
+h4 {
+  width: 100%;
+  color: brown;
+  text-align: center;
+}

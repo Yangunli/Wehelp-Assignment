@@ -1,0 +1,61 @@
+{% extends "base.html" %} {%block title%}WEEK7 | 會員頁面{%endblock%} {% block
+content %} {%if username %}
+<div class="container">
+  <header class="header">
+    <a href="/"> <h1>歡迎光臨，這是會員頁</h1></a>
+  </header>
+  <main>
+    <div class="form-container">
+      <h3>{{username|capitalize}}， 歡迎登入系統</h3>
+
+      {% with msgs = get_flashed_messages() %} {% if msgs %} {% for msg in msgs
+      %} {{ msg }} {% endfor %} {% endif %} {% endwith %}
+      <p><a href="/signout">登出系統</a></p>
+    </div>
+
+    <div class="hr"></div>
+    <div class="form-container">
+      <h3>快來留言吧</h3>
+      <form action="{{ url_for('message') }}" method="POST">
+        <input type="text" name="message" />
+        <button type="submit">送出</button>
+      </form>
+    </div>
+    <div class="hr"></div>
+    <div class="msg">
+      <ul>
+        {% for msg in contents %}
+        <li>{{msg.name|capitalize}}:{{msg.content}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="hr"></div>
+    <div class="form-container" id="searchMember">
+      <h3>查詢會員姓名</h3>
+      <div class="form">
+        <input type="text" name="username" id="inputUsername" /><button
+          type="submit"
+          onclick="getUsername()"
+        >
+          查詢
+        </button>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div class="form-container">
+      <h3>更新我的姓名</h3>
+      <form action="{{ url_for('updateUsername') }}" method="PATCH">
+        <input type="text" name="message" /><button type="submit">更新</button>
+      </form>
+    </div>
+  </main>
+  {%else%}
+  <header class="header">
+    <a href="/"><h1>失敗頁面</h1></a>
+  </header>
+  <main>
+    <a href="/"> <h3>{{message}} → 回到首頁</h3></a>
+  </main>
+</div>
+
+{%endif%} {% endblock %}
