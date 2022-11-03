@@ -1,9 +1,7 @@
-
-from unittest import result
 import mysql.connector 
 from flask import Flask, redirect, render_template,request,session,url_for,Response,jsonify, flash,json,make_response
 import re
-import requests
+
 
 
 app = Flask(__name__)
@@ -103,9 +101,7 @@ def searchMember():
     result={}
     if match_username and "username" in session:
         mycursor.execute("select id,name from member where username=%(username)s",{"username":username})
-        user = mycursor.fetchone()
-        
-        
+        user = mycursor.fetchone()  
         if user != None:
             data={'id':user[0],'name':user[1],'username':username}
             result.update({"data": data}) 
@@ -116,7 +112,9 @@ def searchMember():
     else:
         result.update({"data": None}) 
         return result
-                
+
+
+
 @app.route("/api/member/<username>", methods=["PATCH"])
 def updateMember(username):
     id=session["id"]
