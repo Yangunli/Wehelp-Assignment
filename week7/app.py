@@ -1,8 +1,9 @@
 
 from unittest import result
 import mysql.connector 
-from flask import Flask, redirect, render_template,request,session,url_for,Response,jsonify, flash,json
+from flask import Flask, redirect, render_template,request,session,url_for,Response,jsonify, flash,json,make_response
 import re
+import requests
 
 
 app = Flask(__name__)
@@ -100,7 +101,7 @@ def searchMember():
     username=request.args.get("username")
     match_username = re.search(r'\S', username)
     if match_username:
-        mycursor.execute("select id,name, username from member where username=%(username)s",{"username":username})
+        mycursor.execute("select id,name from member where username=%(username)s",{"username":username})
         user = mycursor.fetchone()
         result={}
         if "username" in session:
@@ -114,19 +115,24 @@ def searchMember():
         else:
             result.update({"data": None}) 
             return result
-
-            
-
-
-@app.route("/api/member", methods=["PATCH"])
-def updateUsername():
-    id=session["id"] 
-    pass
-
-
-
-
-
+                
+@app.route("/api/member/<username>", methods=["PATCH"])
+def updateMember(username):
+    id=session["id"]
+    newName = request.get_json()["name"]
+    match = re.search(r'\S', newName)
+    if "username" in session and match:
+        try:
+            mycursor.execute("update member set name=%(newName)s where id=%(id)s",{"newName":newName,"id":id})
+            mydb.commit()
+            res = make_response(jsonify({"ok":True}),200)
+            return res
+        except: 
+            res= make_response(jsonify({"error":True}),400)
+            return res
+    else:
+        res= make_response(jsonify({"error":True}),400)
+        return res
 
 
 @app.route("/error")

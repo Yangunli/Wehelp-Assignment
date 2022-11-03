@@ -6,7 +6,7 @@ content %} {%if username %}
   </header>
   <main>
     <div class="form-container">
-      <h3>{{username|capitalize}}， 歡迎登入系統</h3>
+      <h3 id="username">{{username|capitalize}}， 歡迎登入系統</h3>
 
       {% with msgs = get_flashed_messages() %} {% if msgs %} {% for msg in msgs
       %} {{ msg }} {% endfor %} {% endif %} {% endwith %}
@@ -30,10 +30,10 @@ content %} {%if username %}
       </ul>
     </div>
     <div class="hr"></div>
-    <div class="form-container" id="searchMember">
+    <div class="form-container" id="searchMemberContainer">
       <h3>查詢會員姓名</h3>
       <div class="form">
-        <input type="text" name="username" id="inputUsername" /><button
+        <input type="text" name="username" id="searchUsername" /><button
           type="submit"
           onclick="getUsername()"
         >
@@ -42,11 +42,16 @@ content %} {%if username %}
       </div>
     </div>
     <div class="hr"></div>
-    <div class="form-container">
+    <div class="form-container" id="updateNameContainer">
       <h3>更新我的姓名</h3>
-      <form action="{{ url_for('updateUsername') }}" method="PATCH">
-        <input type="text" name="message" /><button type="submit">更新</button>
-      </form>
+      <div class="form">
+        <input type="text" name="name" id="updateName" /><button
+          type="submit"
+          onclick="getUpdateName()"
+        >
+          更新
+        </button>
+      </div>
     </div>
   </main>
   {%else%}
