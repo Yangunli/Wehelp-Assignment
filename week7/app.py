@@ -100,21 +100,22 @@ def message():
 def searchMember():
     username=request.args.get("username")
     match_username = re.search(r'\S', username)
-    if match_username:
+    result={}
+    if match_username and "username" in session:
         mycursor.execute("select id,name from member where username=%(username)s",{"username":username})
         user = mycursor.fetchone()
-        result={}
-        if "username" in session:
-            if user != None:
-                data={'id':user[0],'name':user[1],'username':username}
-                result.update({"data": data}) 
-                return result 
-            else: 
-                result.update({"data": None}) 
-                return result
-        else:
+        
+        
+        if user != None:
+            data={'id':user[0],'name':user[1],'username':username}
+            result.update({"data": data}) 
+            return result 
+        else: 
             result.update({"data": None}) 
             return result
+    else:
+        result.update({"data": None}) 
+        return result
                 
 @app.route("/api/member/<username>", methods=["PATCH"])
 def updateMember(username):
