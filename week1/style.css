@@ -80,17 +80,9 @@ li {
   align-items: center;
 }
 
-main {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .container {
-  width: 1200px;
-  display: flex;
-  flex-direction: column;
+  width: min(90%, 1200px);
+  margin: auto;
 }
 
 .promotion-container {
@@ -171,40 +163,20 @@ main {
   background-repeat: no-repeat;
 }
 
-@media (min-width: 600.001px) and (max-width: 1200px) {
-  .container {
-    width: 100%;
-  }
-  .container {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-  }
-
+@media (600px < width <= 1200px) {
   .title-container {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .promotion p {
-    width: 80%;
+    width: min(75%, 80%);
   }
 }
 
-@media (max-width: 880px) {
-  .promotion p {
-    width: 75%;
-  }
-}
-
-@media (min-width: 360.001px) and (max-width: 600px) {
+@media (360px < width <= 600px) {
   .title-container,
   .promotion-container {
     grid-template-columns: 1fr;
-  }
-  .container {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
   }
 
   .header {
@@ -214,9 +186,6 @@ main {
   .promotion-container {
     height: calc(var(--font) * 2 + var(--promotion) * 2);
   }
-  .promotion p {
-    width: 82%;
-  }
   .right,
   .menu ul {
     display: none;
@@ -226,21 +195,10 @@ main {
   }
 }
 
-@media (max-width: 460px) {
-  .promotion p {
-    width: 75%;
-  }
-}
-
-@media (max-width: 360px) {
+@media (width<= 360px) {
   .title-container,
   .promotion-container {
     grid-template-columns: 1fr;
-  }
-  .container {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
   }
 
   .promotion-container {
@@ -253,7 +211,7 @@ main {
   }
   .menu {
     display: block;
-    z-index: 2;
+    /* z-index: 2; */
   }
 
   .header {
