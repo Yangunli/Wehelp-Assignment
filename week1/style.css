@@ -30,10 +30,7 @@ body {
 
 .right {
   display: flex;
-}
-
-.item:not(:last-child) {
-  padding: 0px 10px;
+  gap: 20px;
 }
 
 .menu {
@@ -211,7 +208,6 @@ li {
   }
   .menu {
     display: block;
-    /* z-index: 2; */
   }
 
   .header {
